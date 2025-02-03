@@ -73,8 +73,5 @@ body {
 #video-transcript {
 	max-height: 300px;
 	overflow-y: auto;
-	padding: 10px;
-	border: 1px solid #ddd;
-	background: #f8f9fa;
 	user-select: none;
 }

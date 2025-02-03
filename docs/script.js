@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () =>
         {
             originalData = data;
             loadInfo(data);
+            loadPromt(data);
             loadTranscript(data);
             createTagButtons(data);
             createCharts(data);
@@ -65,6 +66,26 @@ document.addEventListener("DOMContentLoaded", () =>
                 hideLoader();
             });
     });
+
+    document.getElementById("toggle-filters").addEventListener("click", () =>
+    {
+        const allActive = Array.from(document.querySelectorAll('#tag-filters .tag-button')).every(btn => btn.classList.contains('active'));
+        document.querySelectorAll('#tag-filters .tag-button').forEach(btn =>
+        {
+            if (allActive)
+            {
+                btn.classList.remove('active');
+                activeTags.delete(btn.textContent);
+            }
+            else
+            {
+                btn.classList.add('active');
+                activeTags.add(btn.textContent);
+            }
+        });
+        updateDataTable();
+        updateCharts();
+    });
 });
 
 function showLoader()
@@ -92,8 +113,8 @@ function populateDatasetDropdown(datasets)
 function loadInfo(data)
 {
     document.getElementById('title').textContent = data.title || "N/A";
-    document.getElementById('total-words').textContent = data.totalWords || "N/A";
-    document.getElementById('unique-words').textContent = data.uniqueWords || "N/A";
+    document.getElementById('total-words').textContent = parseInt(data.totalWords).toLocaleString() || "N/A";
+    document.getElementById('unique-words').textContent = parseInt(data.uniqueWords).toLocaleString() || "N/A";
     document.getElementById('analysis-duration').textContent = data.analysisDuration || "N/A";
     document.getElementById('llm-model').textContent = data.llmModel || "N/A";
     document.getElementById('analysis-hardware').textContent = data.analysisHardware || "N/A";
@@ -105,6 +126,11 @@ function loadInfo(data)
     {
         source.textContent = data.source || "N/A";
     }
+}
+
+function loadPromt(data)
+{
+    document.getElementById("promt").textContent = data.promt || "";
 }
 
 function loadTranscript(data)
