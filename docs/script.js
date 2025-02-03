@@ -91,21 +91,20 @@ function populateDatasetDropdown(datasets)
 
 function loadInfo(data)
 {
-    const ytTitle = document.getElementById('yt-title');
-    if (data.youtubeLink)
-    {
-        ytTitle.innerHTML = `<a href="${data.youtubeLink}" target="_blank">${data.youtubeTitle}</a>`;
-    } else
-    {
-        ytTitle.textContent = data.youtubeTitle || "";
-    }
-
-    document.getElementById('yt-length').textContent = data.videoLength || "N/A";
+    document.getElementById('title').textContent = data.title || "N/A";
     document.getElementById('total-words').textContent = data.totalWords || "N/A";
     document.getElementById('unique-words').textContent = data.uniqueWords || "N/A";
     document.getElementById('analysis-duration').textContent = data.analysisDuration || "N/A";
     document.getElementById('llm-model').textContent = data.llmModel || "N/A";
-    document.getElementById('analysis-started').textContent = data.analysisStarted || "N/A";
+    document.getElementById('analysis-hardware').textContent = data.analysisHardware || "N/A";
+
+    if (data.source.startsWith('http'))
+    {
+        source.innerHTML = `<a href="${data.source}" target="_blank">Link</a>`;
+    } else
+    {
+        source.textContent = data.source || "N/A";
+    }
 }
 
 function loadTranscript(data)

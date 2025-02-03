@@ -32,8 +32,7 @@ const sortedWords = Object.entries(wordCounts)
 
 const outputData = {
     youtubeTitle: "Merzrede beim 37. Parteitag der CDU",
-    youtubeLink: "https://www.youtube.com/watch?v=oHFYIpKOUkc",
-    videoLength: "1:06:39",
+    source: "https://www.youtube.com/watch?v=oHFYIpKOUkc",
     totalWords,
     uniqueWords,
     analysisDuration: `${Date.now() - startTime}ms`,
