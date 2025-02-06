@@ -75,3 +75,14 @@ body {
 	overflow-y: auto;
 	user-select: none;
 }
+
+.tag-button.control-button {
+	background-color: #f8f9fa;
+	border: 1px solid #dee2e6;
+	color: #495057;
+}
+
+.tag-button.control-button:hover {
+	background-color: #e9ecef;
+	border-color: #ced4da;
+}

@@ -3,7 +3,6 @@
 	"source": "https://www.youtube.com/watch?v=oHFYIpKOUkc",
 	"totalWords": 5799,
 	"uniqueWords": 1519,
-	"analysisDuration": "16ms",
 	"llmModel": "",
 	"analysisHardware": "Apple M1 8 GB",
 	"classificationTags": ["Default", "Konjunktionen", "Artikel", "Präpositionen", "Pronomen", "Adverbien", "Verben", "Nomen", "Neutral", "Politisch", "Positiv", "Unpolitisch"],

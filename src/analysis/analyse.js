@@ -35,7 +35,6 @@ const outputData = {
     source: "https://www.youtube.com/watch?v=oHFYIpKOUkc",
     totalWords,
     uniqueWords,
-    analysisDuration: `${Date.now() - startTime}ms`,
     llmModel: "",
     analysisStarted,
     classificationTags: ["Default"],

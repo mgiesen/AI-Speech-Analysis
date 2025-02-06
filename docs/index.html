@@ -37,10 +37,24 @@
 
 			<div class="card glass-card mb-3">
 				<div class="card-body">
-					<h5 class="card-title mb-3">Klassifizierungsfilter</h5>
+					<h5 class="card-title mb-3">Berücksichtigte Tags</h5>
 
-					<div class="d-flex gap-2">
-						<button id="toggle-filters" class="btn btn-warning .tag-button">Alle umschalten</button>
+					<div class="d-flex gap-2 flex-wrap">
+						<div class="btn-group">
+							<button id="select-all-tags" class="tag-button control-button d-flex align-items-center gap-1">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+									<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+								</svg>
+								Alle auswählen
+							</button>
+							<button id="deselect-all-tags" class="tag-button control-button d-flex align-items-center gap-1">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+									<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+								</svg>
+								Alle abwählen
+							</button>
+						</div>
+
 						<div id="tag-filters" class="d-flex flex-wrap gap-1"></div>
 					</div>
 				</div>
@@ -84,6 +98,8 @@
 
 			<div class="card glass-card mt-3">
 				<div class="card-body">
+					<h5 class="card-title mb-3">Metadaten</h5>
+
 					<div class="row g-2">
 						<div class="col-md-3 col-sm-6">
 							<small class="text-muted">Titel</small>
@@ -112,24 +128,20 @@
 							<small class="text-muted">Hardware</small>
 							<div id="analysis-hardware" class="fw-bold"></div>
 						</div>
-						<div class="col-md-3 col-sm-6">
-							<small class="text-muted">Analysedauer</small>
-							<div id="analysis-duration" class="fw-bold"></div>
-						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="card glass-card mt-3">
 				<div class="card-body">
-					<h5 class="card-title">Verwendeter Klassifikations Promt</h5>
+					<h5 class="card-title">Verwendeter Promt</h5>
 					<div id="promt"></div>
 				</div>
 			</div>
 
 			<div class="card glass-card mt-3">
 				<div class="card-body">
-					<h5 class="card-title">Zugrundeliegendes Transkript</h5>
+					<h5 class="card-title">Transkript</h5>
 					<div id="video-transcript"></div>
 				</div>
 			</div>

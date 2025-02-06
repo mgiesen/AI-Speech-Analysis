@@ -67,21 +67,23 @@ document.addEventListener("DOMContentLoaded", () =>
             });
     });
 
-    document.getElementById("toggle-filters").addEventListener("click", () =>
+    document.getElementById("select-all-tags").addEventListener("click", () =>
     {
-        const allActive = Array.from(document.querySelectorAll('#tag-filters .tag-button')).every(btn => btn.classList.contains('active'));
         document.querySelectorAll('#tag-filters .tag-button').forEach(btn =>
         {
-            if (allActive)
-            {
-                btn.classList.remove('active');
-                activeTags.delete(btn.textContent);
-            }
-            else
-            {
-                btn.classList.add('active');
-                activeTags.add(btn.textContent);
-            }
+            btn.classList.add('active');
+            activeTags.add(btn.textContent);
+        });
+        updateDataTable();
+        updateCharts();
+    });
+
+    document.getElementById("deselect-all-tags").addEventListener("click", () =>
+    {
+        document.querySelectorAll('#tag-filters .tag-button').forEach(btn =>
+        {
+            btn.classList.remove('active');
+            activeTags.delete(btn.textContent);
         });
         updateDataTable();
         updateCharts();
@@ -115,7 +117,6 @@ function loadInfo(data)
     document.getElementById('title').textContent = data.title || "N/A";
     document.getElementById('total-words').textContent = parseInt(data.totalWords).toLocaleString() || "N/A";
     document.getElementById('unique-words').textContent = parseInt(data.uniqueWords).toLocaleString() || "N/A";
-    document.getElementById('analysis-duration').textContent = data.analysisDuration || "N/A";
     document.getElementById('llm-model').textContent = data.llmModel || "N/A";
     document.getElementById('analysis-hardware').textContent = data.analysisHardware || "N/A";
 
