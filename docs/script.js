@@ -6,24 +6,25 @@ document.addEventListener("DOMContentLoaded", () =>
 {
     showLoader();
 
+    const initialDataset = 'datasets/last_analysis_deepseek.json';
+
     // Lade Liste aller Datensätze
     fetch('datasets.json')
         .then(response => response.json())
         .then(datasetList =>
         {
             populateDatasetDropdown(datasetList.datasets);
-            return fetch('datasets/cdu.json');
+            return fetch(initialDataset);
         })
         .then(response =>
         {
-            document.getElementById("datasetDropdown").value = 'datasets/cdu.json';
+            document.getElementById("datasetDropdown").value = initialDataset;
             return response.json();
         })
         .then(data =>
         {
             originalData = data;
             loadInfo(data);
-            loadPromt(data);
             loadTranscript(data);
             createTagButtons(data);
             createCharts(data);
@@ -129,11 +130,6 @@ function loadInfo(data)
     }
 }
 
-function loadPromt(data)
-{
-    document.getElementById("promt").textContent = data.promt || "";
-}
-
 function loadTranscript(data)
 {
     document.getElementById("video-transcript").textContent = data.transcript || "";
@@ -195,7 +191,7 @@ function updateDataTable()
     const tableRows = filtered.map(word => [
         word.text,
         word.count,
-        word.classification.join(', ')
+        word.classification.filter(tag => activeTags.has(tag)).join(', ')
     ]);
     wordDataTable.clear();
     wordDataTable.rows.add(tableRows);

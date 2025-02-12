@@ -1,3 +1,6 @@
 {
-	"datasets": [{ "title": "Merzrede beim 37. Parteitag der CDU", "path": "datasets/cdu.json" }]
+	"datasets": [
+		{ "title": "Merzrede beim 37. Parteitag der CDU", "path": "datasets/cdu.json" },
+		{ "title": "Letzte Analyse", "path": "datasets/last_analysis_deepseek.json" }
+	]
 }
